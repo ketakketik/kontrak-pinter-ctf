@@ -2,19 +2,18 @@
 
 pragma solidity ^0.8.7;
 
-contract VIP_Bank{
-
+contract VIP_Bank {
     address public manager;
-    mapping(address => uint) public balances;
+    mapping(address => uint256) public balances;
     mapping(address => bool) public VIP;
-    uint public maxETH = 0.5 ether;
+    uint256 public maxETH = 0.5 ether;
 
     constructor() {
         manager = msg.sender;
     }
 
     modifier onlyManager() {
-        require(msg.sender == manager , "you are not manager");
+        require(msg.sender == manager, "you are not manager");
         _;
     }
 
@@ -32,7 +31,7 @@ contract VIP_Bank{
         balances[msg.sender] += msg.value;
     }
 
-    function withdraw(uint _amount) public onlyVIP {
+    function withdraw(uint256 _amount) public onlyVIP {
         require(address(this).balance <= maxETH, "Cannot withdraw more than 0.5 ETH per transaction");
         require(balances[msg.sender] >= _amount, "Not enough ether");
         balances[msg.sender] -= _amount;
@@ -40,8 +39,7 @@ contract VIP_Bank{
         require(success, "Withdraw Failed!");
     }
 
-    function contractBalance() public view returns (uint){
+    function contractBalance() public view returns (uint256) {
         return address(this).balance;
     }
-
 }

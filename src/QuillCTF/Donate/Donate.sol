@@ -4,15 +4,14 @@ pragma solidity ^0.8;
 
 contract Donate {
     event t1(bytes _sig);
+
     address payable public keeper;
     address public owner;
-    event newDonate(address indexed, uint amount);
+
+    event newDonate(address indexed, uint256 amount);
 
     modifier onlyOwner() {
-        require(
-            msg.sender == owner || msg.sender == address(this),
-            "You are not Owner"
-        );
+        require(msg.sender == owner || msg.sender == address(this), "You are not Owner");
         _;
     }
 
@@ -31,14 +30,8 @@ contract Donate {
     }
 
     function secretFunction(string memory f) external {
-        require(
-            keccak256(bytes(f)) !=
-                0x097798381ee91bee7e3420f37298fe723a9eedeade5440d4b2b5ca3192da2428,
-            "invalid"
-        );
-        (bool success, ) = address(this).call(
-            abi.encodeWithSignature(f, msg.sender)
-        );
+        require(keccak256(bytes(f)) != 0x097798381ee91bee7e3420f37298fe723a9eedeade5440d4b2b5ca3192da2428, "invalid");
+        (bool success,) = address(this).call(abi.encodeWithSignature(f, msg.sender));
         require(success, "call fail");
     }
 

@@ -1,12 +1,12 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.18;
 
-struct Recipients{
+struct Recipients {
     address account;
     uint256 amount;
 }
 
-struct Parameters{
+struct Parameters {
     uint256 totalRecipients;
     uint256 offset;
     Recipients[] recipients;
@@ -14,6 +14,6 @@ struct Parameters{
 }
 
 interface ISlotPuzzleFactory {
-    function payout(address wallet,uint256 amount) external;
+    function payout(address wallet, uint256 amount) external;
     function ascertainSlot(Parameters calldata params) external returns (bool status);
 }

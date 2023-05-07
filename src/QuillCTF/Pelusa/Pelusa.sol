@@ -31,7 +31,7 @@ contract Pelusa {
 
     function shoot() external {
         require(isGoal(), "missed");
-				/// @dev use "the hand of god" trick
+        /// @dev use "the hand of god" trick
         (bool success, bytes memory data) = player.delegatecall(abi.encodeWithSignature("handOfGod()"));
         require(success, "missed");
         require(uint256(bytes32(data)) == 22_06_1986);

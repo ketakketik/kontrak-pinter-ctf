@@ -8,21 +8,18 @@ interface IPassManager {
 }
 
 contract GoldNFT is ERC721("GoldNFT", "GoldNFT") {
-    uint lastTokenId;
+    uint256 lastTokenId;
     bool minted;
 
     function takeONEnft(bytes32 password) external {
-        require(
-            IPassManager(0xe43029d90B47Dd47611BAd91f24F87Bc9a03AEC2).read(
-                password
-            ),
-            "wrong pass"
-        );
+        require(IPassManager(0xe43029d90B47Dd47611BAd91f24F87Bc9a03AEC2).read(password), "wrong pass");
 
         if (!minted) {
             lastTokenId++;
             _safeMint(msg.sender, lastTokenId);
             minted = true;
-        } else revert("already minted");
+        } else {
+            revert("already minted");
+        }
     }
 }

@@ -2,7 +2,7 @@
 pragma solidity ^0.8.0;
 
 contract access_denied {
-    string private data; 
+    string private data;
     address admin;
 
     constructor(string memory _data) {
@@ -11,20 +11,20 @@ contract access_denied {
     }
 
     function isContract(address addr) public view returns (bool) {
-        uint size;
+        uint256 size;
         assembly {
             size := extcodesize(addr)
         }
         return size > 0;
     }
 
-    modifier noEOA {
-        require (msg.sender != tx.origin, "No-EOA allowed!");
+    modifier noEOA() {
+        require(msg.sender != tx.origin, "No-EOA allowed!");
         _;
     }
 
-    modifier noContract {
-        require (!isContract(msg.sender), "No-contract allowed either!");
+    modifier noContract() {
+        require(!isContract(msg.sender), "No-contract allowed either!");
         _;
     }
 
@@ -33,13 +33,12 @@ contract access_denied {
     }
 
     function _changeAdmin(address _addr) private {
-        require(msg.sender==_addr);
-        admin = _addr ;
-
+        require(msg.sender == _addr);
+        admin = _addr;
     }
-    
+
     function getflag() public view returns (string memory) {
         require(msg.sender == admin, "You are not admin yet!");
-        return(data);
+        return (data);
     }
 }

@@ -22,14 +22,12 @@ contract WETH11 is ERC20("Angel Di Maria Wrapped Ether", "WETH11"), ReentrancyGu
     function withdraw(uint256 wad) external nonReentrant {
         _burn(msg.sender, wad);
         Address.sendValue(payable(msg.sender), wad);
-       
     }
 
     function withdrawAll() external nonReentrant {
         uint256 balance = balanceOf(msg.sender);
         _burnAll();
         Address.sendValue(payable(msg.sender), balance);
-        
     }
 
     /// @notice Request a flash loan in ETH

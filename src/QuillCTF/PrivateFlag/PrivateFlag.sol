@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-contract private_flag{
+contract private_flag {
     string public name = "Anon";
     string private Address = "Private";
     uint8 public age = 13;

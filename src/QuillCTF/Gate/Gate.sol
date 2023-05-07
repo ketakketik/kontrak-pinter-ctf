@@ -17,16 +17,10 @@ contract Gate {
         }
         require(codeSize < 33, "bad code size");
 
-        require(
-            IGuardian(guardian).f00000000_bvvvdlt() == address(this),
-            "invalid pass"
-        );
-        require(
-            IGuardian(guardian).f00000001_grffjzz() == tx.origin,
-            "invalid pass"
-        );
+        require(IGuardian(guardian).f00000000_bvvvdlt() == address(this), "invalid pass");
+        require(IGuardian(guardian).f00000001_grffjzz() == tx.origin, "invalid pass");
 
-        (bool success, ) = guardian.call(abi.encodeWithSignature("fail()"));
+        (bool success,) = guardian.call(abi.encodeWithSignature("fail()"));
         require(!success);
 
         opened = true;
