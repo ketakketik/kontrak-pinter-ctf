@@ -6,7 +6,7 @@ import "../09-Vault/VaultFactory.sol";
 import "forge-std/Test.sol";
 
 contract VaultAttack is Test {
-    function test() external {
+    function testVault() external {
         vm.createSelectFork(vm.envString("sepolia"));
         address agus = makeAddr("agus");
         Ethernaut ethernaut = new Ethernaut();

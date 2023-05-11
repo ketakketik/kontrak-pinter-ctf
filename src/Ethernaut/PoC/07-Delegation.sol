@@ -6,7 +6,7 @@ import "../07-Delegation/DelegationFactory.sol";
 import "forge-std/Test.sol";
 
 contract DelegationAttack is Test {
-    function test() external {
+    function testDelegation() external {
         vm.createSelectFork(vm.envString("sepolia"));
         address salsa = makeAddr("salsa");
         vm.deal(salsa, 10 ether);

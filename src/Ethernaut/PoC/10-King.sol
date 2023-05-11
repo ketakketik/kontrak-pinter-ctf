@@ -6,7 +6,7 @@ import "../10-King/KingFactory.sol";
 import "forge-std/Test.sol";
 
 contract KingAttack is Test {
-    function test() external {
+    function testKing() external {
         vm.createSelectFork(vm.envString("sepolia"));
         address kacrut = makeAddr("kacrut");
         vm.deal(kacrut, 10 ether);

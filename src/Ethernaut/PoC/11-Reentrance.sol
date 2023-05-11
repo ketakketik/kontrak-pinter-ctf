@@ -6,7 +6,7 @@ import "../11-Reentrance/ReentranceFactory.sol";
 import "forge-std/Test.sol";
 
 contract ReentraceAttack is Test {
-    function test() external {
+    function testReentrance() external {
         vm.createSelectFork(vm.envString("sepolia"));
         address jack = makeAddr("jack");
         vm.deal(jack, 100 ether);

@@ -6,7 +6,7 @@ import "../12-Elevator/ElevatorFactory.sol";
 import "forge-std/Test.sol";
 
 contract ElevatorAttack is Test {
-    function test() external {
+    function testElevator() external {
         vm.createSelectFork(vm.envString("sepolia"));
         address agus = makeAddr("agus");
         Ethernaut ethernaut = new Ethernaut();

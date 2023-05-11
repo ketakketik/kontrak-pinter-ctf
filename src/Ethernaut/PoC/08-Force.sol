@@ -6,7 +6,7 @@ import "../08-Force/ForceFactory.sol";
 import "forge-std/Test.sol";
 
 contract ForceAttack is Test {
-    function test() external {
+    function testForce() external {
         address agus = makeAddr("agus");
         vm.createSelectFork(vm.envString("sepolia"));
         vm.deal(agus, 10 ether);

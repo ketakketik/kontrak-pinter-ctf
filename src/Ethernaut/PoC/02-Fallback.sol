@@ -6,7 +6,7 @@ import "../02-Fallback/FallbackFactory.sol";
 import "forge-std/Test.sol";
 
 contract FallbackAttack is Test {
-    function test() external {
+    function testFallback() external {
         vm.createSelectFork(vm.envString("sepolia"));
         Ethernaut ethernaut = new Ethernaut();
         FallbackFactory fallbackfactory = new FallbackFactory();

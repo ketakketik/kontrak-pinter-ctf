@@ -6,7 +6,7 @@ import "../03-Fallout/FalloutFactory.sol";
 import "forge-std/Test.sol";
 
 contract FalloutAttack is Test {
-    function test() external {
+    function testFallout() external {
         vm.createSelectFork(vm.envString("sepolia"));
         console.log("setup");
         Ethernaut ethernaut = new Ethernaut();

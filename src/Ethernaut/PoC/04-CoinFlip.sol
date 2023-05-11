@@ -7,7 +7,7 @@ import "forge-std/Test.sol";
 import "openzeppelin-contracts/contracts/utils/math/SafeMath.sol";
 
 contract CoinFlipAttack is Test {
-    function test() external {
+    function testCoinFlip() external {
         console.log("setup");
         bool sukses;
         vm.createSelectFork(vm.envString("sepolia"));

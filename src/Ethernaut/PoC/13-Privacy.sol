@@ -6,7 +6,7 @@ import "../13-Privacy/PrivacyFactory.sol";
 import "forge-std/Test.sol";
 
 contract PrivacyAttack is Test {
-    function test() external {
+    function testPrivacy() external {
         vm.createSelectFork(vm.envString("sepolia"));
         address kacrut = makeAddr("kacrut");
         Ethernaut ethernaut = new Ethernaut();

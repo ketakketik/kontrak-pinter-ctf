@@ -6,7 +6,7 @@ import "../06-Token/TokenFactory.sol";
 import "forge-std/Test.sol";
 
 contract TokenAttack is Test {
-    function test() external {
+    function testToken() external {
         vm.createSelectFork(vm.envString("sepolia"));
         Ethernaut ethernaut = new Ethernaut();
         TokenFactory factory = new TokenFactory();

@@ -6,7 +6,7 @@ import "../05-Telephone/TelephoneFactory.sol";
 import "forge-std/Test.sol";
 
 contract TelephoneAttack is Test {
-    function test() external {
+    function testTelephone() external {
         vm.createSelectFork(vm.envString("sepolia"));
         Ethernaut ethernaut = new Ethernaut();
         TelephoneFactory factory = new TelephoneFactory();

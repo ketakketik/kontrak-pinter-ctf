@@ -6,7 +6,7 @@ import "../01-HelloEthernaut/HelloEthernautFactory.sol";
 import "forge-std/Test.sol";
 
 contract HelloEthernaut is Test {
-    function test() external {
+    function testHelloEthernaut() external {
         vm.createSelectFork(vm.envString("sepolia"));
         Ethernaut ethernaut = new Ethernaut();
         InstanceFactory instance = new InstanceFactory();
