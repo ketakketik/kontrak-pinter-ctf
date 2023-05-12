@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.10;
+pragma solidity ^0.8.0;
 
 import "openzeppelin-contracts/contracts/token/ERC20/ERC20.sol";
 
@@ -11,7 +11,7 @@ contract NaughtCoin is ERC20 {
     uint256 public INITIAL_SUPPLY;
     address public player;
 
-    constructor(address _player) public ERC20("NaughtCoin", "0x0") {
+    constructor(address _player) ERC20("NaughtCoin", "0x0") {
         player = _player;
         INITIAL_SUPPLY = 1000000 * (10 ** uint256(decimals()));
         // _totalSupply = INITIAL_SUPPLY;
