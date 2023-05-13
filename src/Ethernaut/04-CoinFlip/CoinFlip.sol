@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.10; // Latest solidity version
 
-import "openzeppelin-contracts/contracts/utils/math/SafeMath.sol"; // Path change of openzeppelin contract
+import "../../../lib/openzeppelin-contracts/contracts/utils/math/SafeMath.sol"; // Path change of openzeppelin contract
 
 contract CoinFlip {
     using SafeMath for uint256;

@@ -2,7 +2,7 @@
 
 pragma solidity ^0.8.10;
 
-import "openzeppelin-contracts/contracts/utils/math/SafeMath.sol"; // Path change of openzeppelin contract
+import "../../../lib/openzeppelin-contracts/contracts/utils/math/SafeMath.sol"; // Path change of openzeppelin contract
 
 contract Reentrance {
     using SafeMath for uint256;
