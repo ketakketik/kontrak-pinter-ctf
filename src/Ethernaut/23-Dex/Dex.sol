@@ -11,7 +11,7 @@ contract Dex {
     address public token1;
     address public token2;
 
-    constructor(address _token1, address _token2) public {
+    constructor(address _token1, address _token2) {
         token1 = _token1;
         token2 = _token2;
     }
@@ -44,7 +44,7 @@ contract Dex {
 }
 
 contract SwappableToken is ERC20 {
-    constructor(string memory name, string memory symbol, uint256 initialSupply) public ERC20(name, symbol) {
+    constructor(string memory name, string memory symbol, uint256 initialSupply) ERC20(name, symbol) {
         _mint(msg.sender, initialSupply);
     }
 }
