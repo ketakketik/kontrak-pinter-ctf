@@ -19,7 +19,7 @@ contract DexTwoAttack is Test {
         address token2 = dextwo.token2();
         bool adaLiq = IERC20(token1).balanceOf(address(dextwo)) != 0 && ERC20(token2).balanceOf(address(dextwo)) != 0;
         assertTrue(adaLiq);
-        emit log("Goal: menghabis semua likuiditas token1 dan token2");
+        emit log("Goal: menghabiskan semua likuiditas token1 dan token2");
         emit log("=========================================");
         emit log(
             "pada fungsi swap, tidak ada persyaratn token yang diswap harus token1 dan token2\nARtinya kita bisa menggunakan token buatan sendiri untuk diswap"
